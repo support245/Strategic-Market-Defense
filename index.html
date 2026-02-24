@@ -99,49 +99,29 @@
             }
         }
 
-        /* ===== HERO - WITH EXTRA BLANK GAPS ===== */
+        /* ===== HERO - NOW WITH MORE VISIBLE SPACE ===== */
         .hero {
-            padding: 5rem 0 4rem;
+            padding: 5rem 0 4rem;        /* Increased top/bottom padding for more presence */
             background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-            min-height: 70vh;
+            min-height: 70vh;              /* Give it decent height so most content is visible */
             display: flex;
             align-items: center;
         }
 
         .hero-content {
-            max-width: 850px;
+            max-width: 800px;
             margin: 0 auto;
             text-align: center;
         }
 
         .hero-subtitle {
-            font-size: 1.25rem;
+            font-size: 1.25rem;            /* Slightly larger for emphasis */
             color: #2c3e50;
-            margin-bottom: 2rem;        /* base margin */
-            max-width: 750px;
+            margin-bottom: 2rem;            /* More space below subtitle */
+            max-width: 650px;
             margin-left: auto;
             margin-right: auto;
             font-weight: 400;
-        }
-
-        /* Two additional blank gaps implemented as empty divs with height */
-        .hero-gap {
-            height: 1.5rem;              /* first gap line */
-            width: 100%;
-        }
-
-        .hero-gap-second {
-            height: 1.5rem;              /* second gap line */
-            width: 100%;
-        }
-
-        /* subtle divider (optional, adds a bit of rhythm) */
-        .hero-divider {
-            width: 60px;
-            height: 2px;
-            background: #0a192f;
-            margin: 1rem auto 0 auto;
-            opacity: 0.2;
         }
 
         /* ===== COMPANY PROFILE ===== */
@@ -452,11 +432,8 @@
         /* Responsive fine-tuning */
         @media (max-width: 768px) {
             .hero {
-                padding: 3rem 0 2.5rem;
+                padding: 3rem 0 2.5rem;    /* Maintain decent spacing on mobile */
                 min-height: 60vh;
-            }
-            .hero-gap, .hero-gap-second {
-                height: 1rem;           /* slightly smaller gaps on mobile */
             }
             .section {
                 padding: 2rem 0;
@@ -477,19 +454,13 @@
     </style>
 </head>
 <body class="scroll-container">
-    <!-- Hero Section - With two blank lines (gaps) -->
+    <!-- Hero Section - Now with generous spacing -->
     <section class="hero">
         <div class="container">
             <div class="hero-content fade-in">
                 <h1>Strategic Market Defense</h1>
                 <p class="hero-subtitle">Medical device manufacturer reclaims 78% market share by optimizing direct sales channels against marketplace competition</p>
-                
-                <!-- Two blank visual gaps -->
-                <div class="hero-gap"></div>
-                <div class="hero-gap-second"></div>
-                
-                <!-- Optional light separator for visual rhythm (still there but you can remove if unwanted) -->
-                <div class="hero-divider"></div>
+                <!-- subtle visual cue - you can add a small indicator if desired, but keeping it clean -->
             </div>
         </div>
     </section>
