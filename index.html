@@ -24,7 +24,7 @@
             font-weight: 300;
             background: #ffffff;
             color: #1a1a1a;
-            line-height: 1.5;        /* Tighter line height */
+            line-height: 1.5;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
@@ -36,7 +36,7 @@
             padding: 0 20px;
         }
 
-        /* ===== TYPOGRAPHY (reduced margins) ===== */
+        /* ===== TYPOGRAPHY ===== */
         h1, h2, h3, h4 {
             font-family: 'Montserrat', sans-serif;
             color: #0a192f;
@@ -47,49 +47,39 @@
         h1 {
             font-size: clamp(2.2rem, 5vw, 3.2rem);
             line-height: 1.2;
-            margin-bottom: 1rem;      /* Reduced */
+            margin-bottom: 1rem;
         }
 
         h2 {
             font-size: clamp(1.8rem, 4vw, 2.3rem);
             line-height: 1.3;
-            margin-bottom: 1rem;      /* Reduced */
+            margin-bottom: 1rem;
         }
 
         h3 {
             font-size: 1.4rem;
             line-height: 1.4;
-            margin-bottom: 0.75rem;   /* Reduced */
+            margin-bottom: 0.75rem;
         }
 
         p {
-            font-size: 1rem;           /* Slightly smaller base */
-            margin-bottom: 1rem;        /* Reduced */
+            font-size: 1rem;
+            margin-bottom: 1rem;
             font-weight: 300;
             color: #444444;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 2rem;        /* Reduced */
+            margin-bottom: 2rem;
+            padding-bottom: 0;           /* Removed padding for separator */
             position: relative;
-            padding-bottom: 1rem;       /* Reduced */
+            /* Removed :after pseudo-element completely */
         }
 
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;                /* Smaller accent */
-            height: 3px;
-            background: #0a192f;
-        }
-
-        /* ===== LAYOUT (compact padding) ===== */
+        /* ===== LAYOUT ===== */
         .section {
-            padding: 2.5rem 0;          /* Reduced from 4rem */
+            padding: 2.5rem 0;
         }
 
         .section-dark {
@@ -99,7 +89,7 @@
         .content-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2rem;                  /* Reduced gap */
+            gap: 2rem;
             align-items: start;
         }
 
@@ -110,11 +100,11 @@
             }
         }
 
-        /* ===== HERO (compact) ===== */
+        /* ===== HERO ===== */
         .hero {
-            padding: 3rem 0 2rem;        /* Reduced from 6rem/4rem */
+            padding: 3rem 0 2rem;
             background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-            min-height: auto;             /* Remove full height, let content decide */
+            min-height: auto;
             display: flex;
             align-items: center;
         }
@@ -128,25 +118,25 @@
         .hero-subtitle {
             font-size: 1.2rem;
             color: #666666;
-            margin-bottom: 1.5rem;        /* Reduced */
+            margin-bottom: 1.5rem;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        /* ===== COMPANY PROFILE (compact) ===== */
+        /* ===== COMPANY PROFILE ===== */
         .company-profile {
             background: #ffffff;
             border-radius: 8px;
-            padding: 1.8rem;              /* Reduced */
-            margin: 1rem 0;                /* Reduced */
+            padding: 1.8rem;
+            margin: 1rem 0;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
 
         .profile-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;                     /* Reduced */
+            gap: 1rem;
             margin-top: 1rem;
         }
 
@@ -157,7 +147,7 @@
         }
 
         .profile-item {
-            padding: 1.2rem;               /* Reduced */
+            padding: 1.2rem;
             background: #f8f9fa;
             border-radius: 6px;
             border-left: 4px solid #0a192f;
@@ -173,12 +163,12 @@
             margin-bottom: 0;
         }
 
-        /* ===== STRATEGY BOXES (compact) ===== */
+        /* ===== STRATEGY BOXES ===== */
         .strategy-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;                   /* Reduced */
-            margin: 1.5rem 0;               /* Reduced */
+            gap: 1.5rem;
+            margin: 1.5rem 0;
         }
 
         @media (max-width: 768px) {
@@ -190,7 +180,7 @@
         .strategy-box {
             background: #ffffff;
             border-radius: 8px;
-            padding: 1.5rem;                /* Reduced */
+            padding: 1.5rem;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             transition: transform 0.3s ease;
             border-top: 4px solid #0a192f;
@@ -210,12 +200,12 @@
             margin-bottom: 0;
         }
 
-        /* ===== METRICS (compact) ===== */
+        /* ===== METRICS ===== */
         .metrics-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;                      /* Reduced */
-            margin: 1.5rem 0;                /* Reduced */
+            gap: 1rem;
+            margin: 1.5rem 0;
         }
 
         @media (max-width: 768px) {
@@ -227,13 +217,13 @@
         .metric-box {
             background: #ffffff;
             border-radius: 8px;
-            padding: 1.5rem;                /* Reduced */
+            padding: 1.5rem;
             text-align: center;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
 
         .metric-value {
-            font-size: 2.2rem;               /* Slightly smaller */
+            font-size: 2.2rem;
             font-weight: 700;
             color: #0a192f;
             margin-bottom: 0.25rem;
@@ -244,23 +234,23 @@
             font-size: 0.9rem;
         }
 
-        /* ===== VISUAL ELEMENTS (compact) ===== */
+        /* ===== VISUAL ELEMENTS ===== */
         .visual-box {
             background: #ffffff;
             border-radius: 8px;
-            padding: 1.5rem;                /* Reduced */
+            padding: 1.5rem;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
 
         .market-visual {
             display: flex;
             flex-direction: column;
-            gap: 0.75rem;                   /* Reduced */
+            gap: 0.75rem;
             margin-top: 0.5rem;
         }
 
         .market-segment {
-            padding: 1rem;                   /* Reduced */
+            padding: 1rem;
             background: #f8f9fa;
             display: flex;
             justify-content: space-between;
@@ -272,7 +262,7 @@
         .segment-value {
             background: #0a192f;
             color: white;
-            padding: 0.4rem 0.8rem;          /* Smaller */
+            padding: 0.4rem 0.8rem;
             border-radius: 20px;
             font-size: 0.85rem;
         }
@@ -286,11 +276,11 @@
         .competition-header {
             background: #0a192f;
             color: white;
-            padding: 0.8rem;                  /* Reduced */
+            padding: 0.8rem;
         }
 
         .competition-item {
-            padding: 0.8rem 1rem;              /* Reduced */
+            padding: 0.8rem 1rem;
             border-bottom: 1px solid #e9ecef;
             display: flex;
             align-items: center;
@@ -313,16 +303,16 @@
         .bar-fill {
             height: 100%;
             background: #0a192f;
-            width: 0%; /* start zero, animated via JS */
+            width: 0%;
             transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* ===== RESULTS SUMMARY (compact) ===== */
+        /* ===== RESULTS SUMMARY ===== */
         .results-summary {
             background: #ffffff;
             border-radius: 8px;
-            padding: 2rem;                     /* Reduced from 3rem */
-            margin: 1.5rem auto;                /* Reduced */
+            padding: 2rem;
+            margin: 1.5rem auto;
             max-width: 800px;
             box-shadow: 0 8px 30px rgba(0,0,0,0.08);
             border-left: 4px solid #0a192f;
@@ -337,7 +327,7 @@
         }
 
         .results-list li {
-            padding: 0.7rem 0;                 /* Reduced */
+            padding: 0.7rem 0;
             border-bottom: 1px solid #e9ecef;
             font-size: 1rem;
             display: flex;
@@ -348,13 +338,13 @@
             content: "✓";
             color: #0a192f;
             font-weight: bold;
-            margin-right: 0.8rem;               /* Slightly smaller */
+            margin-right: 0.8rem;
         }
 
-        /* ===== CTA (compact) ===== */
+        /* ===== CTA ===== */
         .cta-section {
             text-align: center;
-            padding: 3rem 0;                    /* Reduced from 5rem */
+            padding: 3rem 0;
             background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
         }
 
@@ -367,13 +357,13 @@
             display: inline-block;
             background: #0a192f;
             color: #ffffff;
-            padding: 0.8rem 2rem;               /* Reduced */
+            padding: 0.8rem 2rem;
             border-radius: 6px;
             text-decoration: none;
             font-weight: 600;
             font-size: 1rem;
             transition: all 0.3s ease;
-            margin: 1rem 0 0.5rem;               /* Adjusted */
+            margin: 1rem 0 0.5rem;
             border: 2px solid #0a192f;
         }
 
@@ -388,17 +378,17 @@
             margin-top: 1rem;
         }
 
-        /* ===== INSIGHTS GRID (compact) ===== */
+        /* ===== INSIGHTS GRID ===== */
         .insights-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;                           /* Reduced */
-            margin: 1.5rem 0;                      /* Reduced */
+            gap: 1rem;
+            margin: 1.5rem 0;
         }
 
         .insight-box {
             background: #ffffff;
-            padding: 1.2rem;                       /* Reduced */
+            padding: 1.2rem;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
@@ -426,14 +416,13 @@
             }
         }
 
-        /* elements hidden initially for intersection observer */
         .animate-on-scroll {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.6s ease, transform 0.6s ease;
         }
 
-        /* ===== PERFECT SCROLL (optional) ===== */
+        /* ===== PERFECT SCROLL ===== */
         .scroll-container {
             max-height: 100vh;
             overflow-y: auto;
@@ -700,12 +689,10 @@
             // Initialize fade-in for elements with .animate-on-scroll
             const animatedElements = document.querySelectorAll('.animate-on-scroll');
             
-            // Set initial styles (already defined in CSS, but ensure they are applied)
             animatedElements.forEach(el => {
-                el.classList.add('animate-on-scroll'); // ensure class
+                el.classList.add('animate-on-scroll');
             });
 
-            // Intersection Observer for scroll animations
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -20px 0px'
@@ -725,7 +712,7 @@
                 appearObserver.observe(el);
             });
 
-            // Animate bar fills inside .competition-visual (ensure they are set after view)
+            // Animate bar fills
             const barFillElements = document.querySelectorAll('.bar-fill');
             
             const barObserver = new IntersectionObserver((entries) => {
@@ -742,12 +729,11 @@
             }, { threshold: 0.3 });
 
             barFillElements.forEach(bar => {
-                // ensure width is 0 initially (inline style prevents conflict)
                 bar.style.width = '0%';
                 barObserver.observe(bar);
             });
 
-            // Smooth scroll / cta link behavior
+            // CTA link
             const ctaButton = document.querySelector('.cta-button');
             if (ctaButton) {
                 ctaButton.addEventListener('click', function(e) {
@@ -756,7 +742,7 @@
                 });
             }
 
-            // Ensure any pre-existing fade-in (like hero) is visible
+            // Ensure hero fade-in
             document.querySelectorAll('.fade-in').forEach(el => {
                 el.style.opacity = '1';
                 el.style.transform = 'translateY(0)';
