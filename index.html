@@ -72,9 +72,8 @@
         .section-title {
             text-align: center;
             margin-bottom: 2rem;
-            padding-bottom: 0;           /* Removed padding for separator */
+            padding-bottom: 0;
             position: relative;
-            /* Removed :after pseudo-element completely */
         }
 
         /* ===== LAYOUT ===== */
@@ -100,28 +99,49 @@
             }
         }
 
-        /* ===== HERO ===== */
+        /* ===== HERO - WITH EXTRA BLANK GAPS ===== */
         .hero {
-            padding: 3rem 0 2rem;
+            padding: 5rem 0 4rem;
             background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-            min-height: auto;
+            min-height: 70vh;
             display: flex;
             align-items: center;
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
             text-align: center;
         }
 
         .hero-subtitle {
-            font-size: 1.2rem;
-            color: #666666;
-            margin-bottom: 1.5rem;
-            max-width: 600px;
+            font-size: 1.25rem;
+            color: #2c3e50;
+            margin-bottom: 2rem;        /* base margin */
+            max-width: 750px;
             margin-left: auto;
             margin-right: auto;
+            font-weight: 400;
+        }
+
+        /* Two additional blank gaps implemented as empty divs with height */
+        .hero-gap {
+            height: 1.5rem;              /* first gap line */
+            width: 100%;
+        }
+
+        .hero-gap-second {
+            height: 1.5rem;              /* second gap line */
+            width: 100%;
+        }
+
+        /* subtle divider (optional, adds a bit of rhythm) */
+        .hero-divider {
+            width: 60px;
+            height: 2px;
+            background: #0a192f;
+            margin: 1rem auto 0 auto;
+            opacity: 0.2;
         }
 
         /* ===== COMPANY PROFILE ===== */
@@ -431,11 +451,15 @@
 
         /* Responsive fine-tuning */
         @media (max-width: 768px) {
+            .hero {
+                padding: 3rem 0 2.5rem;
+                min-height: 60vh;
+            }
+            .hero-gap, .hero-gap-second {
+                height: 1rem;           /* slightly smaller gaps on mobile */
+            }
             .section {
                 padding: 2rem 0;
-            }
-            .hero {
-                padding: 2rem 0 1.5rem;
             }
             .company-profile {
                 padding: 1.2rem;
@@ -453,12 +477,19 @@
     </style>
 </head>
 <body class="scroll-container">
-    <!-- Hero Section -->
+    <!-- Hero Section - With two blank lines (gaps) -->
     <section class="hero">
         <div class="container">
             <div class="hero-content fade-in">
                 <h1>Strategic Market Defense</h1>
                 <p class="hero-subtitle">Medical device manufacturer reclaims 78% market share by optimizing direct sales channels against marketplace competition</p>
+                
+                <!-- Two blank visual gaps -->
+                <div class="hero-gap"></div>
+                <div class="hero-gap-second"></div>
+                
+                <!-- Optional light separator for visual rhythm (still there but you can remove if unwanted) -->
+                <div class="hero-divider"></div>
             </div>
         </div>
     </section>
@@ -686,7 +717,6 @@
         (function() {
             'use strict';
 
-            // Initialize fade-in for elements with .animate-on-scroll
             const animatedElements = document.querySelectorAll('.animate-on-scroll');
             
             animatedElements.forEach(el => {
@@ -712,7 +742,6 @@
                 appearObserver.observe(el);
             });
 
-            // Animate bar fills
             const barFillElements = document.querySelectorAll('.bar-fill');
             
             const barObserver = new IntersectionObserver((entries) => {
@@ -733,7 +762,6 @@
                 barObserver.observe(bar);
             });
 
-            // CTA link
             const ctaButton = document.querySelector('.cta-button');
             if (ctaButton) {
                 ctaButton.addEventListener('click', function(e) {
@@ -742,7 +770,6 @@
                 });
             }
 
-            // Ensure hero fade-in
             document.querySelectorAll('.fade-in').forEach(el => {
                 el.style.opacity = '1';
                 el.style.transform = 'translateY(0)';
