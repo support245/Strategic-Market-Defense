@@ -72,8 +72,9 @@
         .section-title {
             text-align: center;
             margin-bottom: 2rem;
-            padding-bottom: 0;
+            padding-bottom: 0;           /* Removed padding for separator */
             position: relative;
+            /* Removed :after pseudo-element completely */
         }
 
         /* ===== LAYOUT ===== */
@@ -99,11 +100,11 @@
             }
         }
 
-        /* ===== HERO - NOW WITH MORE VISIBLE SPACE ===== */
+        /* ===== HERO ===== */
         .hero {
-            padding: 5rem 0 4rem;        /* Increased top/bottom padding for more presence */
+            padding: 3rem 0 2rem;
             background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-            min-height: 70vh;              /* Give it decent height so most content is visible */
+            min-height: auto;
             display: flex;
             align-items: center;
         }
@@ -115,13 +116,12 @@
         }
 
         .hero-subtitle {
-            font-size: 1.25rem;            /* Slightly larger for emphasis */
-            color: #2c3e50;
-            margin-bottom: 2rem;            /* More space below subtitle */
-            max-width: 650px;
+            font-size: 1.2rem;
+            color: #666666;
+            margin-bottom: 1.5rem;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
-            font-weight: 400;
         }
 
         /* ===== COMPANY PROFILE ===== */
@@ -431,12 +431,11 @@
 
         /* Responsive fine-tuning */
         @media (max-width: 768px) {
-            .hero {
-                padding: 3rem 0 2.5rem;    /* Maintain decent spacing on mobile */
-                min-height: 60vh;
-            }
             .section {
                 padding: 2rem 0;
+            }
+            .hero {
+                padding: 2rem 0 1.5rem;
             }
             .company-profile {
                 padding: 1.2rem;
@@ -454,13 +453,12 @@
     </style>
 </head>
 <body class="scroll-container">
-    <!-- Hero Section - Now with generous spacing -->
+    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <div class="hero-content fade-in">
                 <h1>Strategic Market Defense</h1>
                 <p class="hero-subtitle">Medical device manufacturer reclaims 78% market share by optimizing direct sales channels against marketplace competition</p>
-                <!-- subtle visual cue - you can add a small indicator if desired, but keeping it clean -->
             </div>
         </div>
     </section>
@@ -688,6 +686,7 @@
         (function() {
             'use strict';
 
+            // Initialize fade-in for elements with .animate-on-scroll
             const animatedElements = document.querySelectorAll('.animate-on-scroll');
             
             animatedElements.forEach(el => {
@@ -713,6 +712,7 @@
                 appearObserver.observe(el);
             });
 
+            // Animate bar fills
             const barFillElements = document.querySelectorAll('.bar-fill');
             
             const barObserver = new IntersectionObserver((entries) => {
@@ -733,6 +733,7 @@
                 barObserver.observe(bar);
             });
 
+            // CTA link
             const ctaButton = document.querySelector('.cta-button');
             if (ctaButton) {
                 ctaButton.addEventListener('click', function(e) {
@@ -741,6 +742,7 @@
                 });
             }
 
+            // Ensure hero fade-in
             document.querySelectorAll('.fade-in').forEach(el => {
                 el.style.opacity = '1';
                 el.style.transform = 'translateY(0)';
