@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Market Defense | Medical Device Case Study</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* ===== RESET & COMPACT BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.5;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ADDED: remove extra bottom gap when embedded in Wix HTML iframe */
+        body.scroll-container{
+            max-height: 100vh;
+            overflow-y: auto;
+        }
+        body.scroll-container::after{
+            content: "";
+            display: block;
+            height: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        section:last-of-type{
+            padding-bottom: 0 !important; /* removes extra space after CTA section */
+        }
+        .cta-section{
+            padding-bottom: 0 !important; /* tighten bottom */
+        }
+        .cta-section .container{
+            padding-bottom: 0 !important; /* tighten bottom */
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            color: #0a192f;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+
+        h1 {
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 4vw, 2.3rem);
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            line-height: 1.4;
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            color: #444444;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 0;           /* Removed padding for separator */
+            position: relative;
+            /* Removed :after pseudo-element completely */
+        }
+
+        /* ===== LAYOUT ===== */
+        .section {
+            padding: 2.5rem 0;
+        }
+
+        .section-dark {
+            background: #f8f9fa;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        @media (max-width: 992px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            padding: 3rem 0 2rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            min-height: auto;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #666666;
+            margin-bottom: 1.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ===== COMPANY PROFILE ===== */
+        .company-profile {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 1.8rem;
+            margin: 1rem 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .profile-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .profile-item {
+            padding: 1.2rem;
+            background: #f8f9fa;
+            border-radius: 6px;
+            border-left: 4px solid #0a192f;
+        }
+
+        .profile-item h4 {
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .profile-item p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        /* ===== STRATEGY BOXES ===== */
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .strategy-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .strategy-box {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            border-top: 4px solid #0a192f;
+        }
+
+        .strategy-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .strategy-box h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .strategy-box p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        /* ===== METRICS ===== */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .metric-box {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .metric-value {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #0a192f;
+            margin-bottom: 0.25rem;
+            line-height: 1;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+        }
+
+        /* ===== VISUAL ELEMENTS ===== */
+        .visual-box {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .market-visual {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-top: 0.5rem;
+        }
+
+        .market-segment {
+            padding: 1rem;
+            background: #f8f9fa;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+
+        .segment-value {
+            background: #0a192f;
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .competition-visual {
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+
+        .competition-header {
+            background: #0a192f;
+            color: white;
+            padding: 0.8rem;
+        }
+
+        .competition-item {
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .competition-label {
+            min-width: 120px;
+            font-size: 0.95rem;
+        }
+
+        .competition-bar {
+            flex: 1;
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: #0a192f;
+            width: 0%;
+            transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ===== RESULTS SUMMARY ===== */
+        .results-summary {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 1.5rem auto;
+            max-width: 800px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            border-left: 4px solid #0a192f;
+        }
+
+        .results-summary h3 {
+            margin-bottom: 1rem;
+        }
+
+        .results-list {
+            list-style: none;
+        }
+
+        .results-list li {
+            padding: 0.7rem 0;
+            border-bottom: 1px solid #e9ecef;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .results-list li:before {
+            content: "✓";
+            color: #0a192f;
+            font-weight: bold;
+            margin-right: 0.8rem;
+        }
+
+        /* ===== CTA ===== */
+        .cta-section {
+            text-align: center;
+            padding: 3rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        }
+
+        .cta-box {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #0a192f;
+            color: #ffffff;
+            padding: 0.8rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            margin: 1rem 0 0.5rem;
+            border: 2px solid #0a192f;
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: #0a192f;
+            transform: translateY(-2px);
+        }
+
+        .cta-box p:last-child {
+            font-size: 0.95rem;
+            margin-top: 1rem;
+        }
+
+        /* ===== INSIGHTS GRID ===== */
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .insight-box {
+            background: #ffffff;
+            padding: 1.2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .insight-box h4 {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        /* ===== PERFECT SCROLL ===== */
+        .scroll-container {
+            max-height: 100vh;
+            overflow-y: auto;
+            scrollbar-width: thin;
+        }
+
+        /* Responsive fine-tuning */
+        @media (max-width: 768px) {
+            .section {
+                padding: 2rem 0;
+            }
+            .hero {
+                padding: 2rem 0 1.5rem;
+            }
+            .company-profile {
+                padding: 1.2rem;
+            }
+            .results-summary {
+                padding: 1.5rem;
+            }
+            .strategy-box {
+                padding: 1.2rem;
+            }
+            .metric-value {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="scroll-container">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>Strategic Market Defense</h1>
+                <p class="hero-subtitle">Medical device manufacturer reclaims 78% market share by optimizing direct sales channels against marketplace competition</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Profile -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Medical Device Industry Leader</h2>
+            
+            <div class="company-profile">
+                <h3>Orthopedic Solutions Innovator</h3>
+                <p>A Southern California-based medical device company, established in 2008, specializing in advanced mobility solutions. With $50M+ annual revenue and 35% direct market share, they faced critical channel conflict between direct sales and marketplace distribution.</p>
+                
+                <div class="profile-grid">
+                    <div class="profile-item">
+                        <h4>Industry Challenge</h4>
+                        <p>Marketplace partners captured 40% of branded search traffic, creating direct competition for high-intent customers</p>
+                    </div>
+                    <div class="profile-item">
+                        <h4>Revenue Impact</h4>
+                        <p>Diversion of direct sales reduced margins by 22% and eroded customer lifetime value</p>
+                    </div>
+                    <div class="profile-item">
+                        <h4>Strategic Goal</h4>
+                        <p>Reclaim branded search territory while maintaining profitable marketplace partnerships</p>
+                    </div>
+                    <div class="profile-item">
+                        <h4>Implementation Timeline</h4>
+                        <p>90-day phased approach with measurable weekly performance tracking</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Challenge -->
+    <section class="section section-dark">
+        <div class="container">
+            <h2 class="section-title">Core Business Challenge</h2>
+            
+            <div class="content-grid">
+                <div>
+                    <h3>Branded Search Competition</h3>
+                    <p>When potential customers searched for the company's specific medical devices—indicating the highest purchase intent—they encountered competing ads from the very marketplace partners who distributed the products.</p>
+                    <p>This created a critical business conflict: bidding against distribution partners for customer attention at the decisive moment of purchase. The manufacturer was effectively funding competition against its own direct sales channel.</p>
+                    
+                    <div class="insights-grid" style="margin-top: 1.5rem;">
+                        <div class="insight-box">
+                            <h4>Customer Journey Disruption</h4>
+                            <p>40% of customers intending to purchase directly were diverted to marketplace alternatives</p>
+                        </div>
+                        <div class="insight-box">
+                            <h4>Margin Erosion</h4>
+                            <p>Marketplace commissions reduced net revenue by 18-25% compared to direct sales</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="visual-box">
+                        <h4>Pre-Implementation Traffic Analysis</h4>
+                        <div class="competition-visual">
+                            <div class="competition-header">Branded Search Traffic Distribution</div>
+                            <div class="competition-item">
+                                <div class="competition-label">Direct Manufacturer</div>
+                                <div class="competition-bar">
+                                    <div class="bar-fill" data-width="47"></div>
+                                </div>
+                            </div>
+                            <div class="competition-item">
+                                <div class="competition-label">Primary Marketplace</div>
+                                <div class="competition-bar">
+                                    <div class="bar-fill" data-width="32"></div>
+                                </div>
+                            </div>
+                            <div class="competition-item">
+                                <div class="competition-label">Secondary Retailers</div>
+                                <div class="competition-bar">
+                                    <div class="bar-fill" data-width="21"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Strategy -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Three-Layer Defense Strategy</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem;">A systematic approach to reclaiming branded search territory while optimizing the entire customer journey</p>
+            
+            <div class="strategy-grid">
+                <div class="strategy-box animate-on-scroll">
+                    <h3>Direct Conversion Layer</h3>
+                    <p>Precision targeting of high-intent branded searches with optimized landing pages and conversion paths. Focus on capturing customers at the moment of purchase decision with superior user experience.</p>
+                </div>
+                <div class="strategy-box animate-on-scroll">
+                    <h3>Demand Capture Layer</h3>
+                    <p>Automated campaign architecture targeting broader commercial intent signals and retargeting abandoned cart visitors. Expands reach while maintaining efficiency through machine learning optimization.</p>
+                </div>
+                <div class="strategy-box animate-on-scroll">
+                    <h3>Market Education Layer</h3>
+                    <p>Strategic content campaigns educating medical professionals and end-users about treatment innovations. Builds brand preference before purchase consideration enters the commercial phase.</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 2.5rem;">
+                <div class="visual-box">
+                    <h4 style="text-align: center; margin-bottom: 1.2rem;">Revenue Channel Prioritization</h4>
+                    <div class="market-visual">
+                        <div class="market-segment">
+                            <div class="segment-name">Direct E-commerce</div>
+                            <div class="segment-value">Primary Revenue</div>
+                        </div>
+                        <div class="market-segment">
+                            <div class="segment-name">Medical Referrals</div>
+                            <div class="segment-value">Strategic Growth</div>
+                        </div>
+                        <div class="market-segment">
+                            <div class="segment-name">Insurance Partners</div>
+                            <div class="segment-value">Stable Stream</div>
+                        </div>
+                        <div class="market-segment">
+                            <div class="segment-name">Marketplace Sales</div>
+                            <div class="segment-value">Controlled Volume</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results -->
+    <section class="section section-dark">
+        <div class="container">
+            <h2 class="section-title">Measured Business Outcomes</h2>
+            
+            <div class="metrics-grid">
+                <div class="metric-box animate-on-scroll">
+                    <div class="metric-value">+25%</div>
+                    <div class="metric-label">Direct Conversions</div>
+                </div>
+                <div class="metric-box animate-on-scroll">
+                    <div class="metric-value">-22%</div>
+                    <div class="metric-label">Acquisition Cost</div>
+                </div>
+                <div class="metric-box animate-on-scroll">
+                    <div class="metric-value">9.8/10</div>
+                    <div class="metric-label">Quality Score</div>
+                </div>
+            </div>
+            
+            <div class="content-grid" style="margin-top: 2.5rem;">
+                <div>
+                    <h3>Sustainable Competitive Advantage</h3>
+                    <p>The strategy established superior auction positions through consistently high Quality Scores (9-10/10). This efficiency advantage allowed the manufacturer to secure prime ad placements at reduced costs compared to marketplace competitors.</p>
+                    <p>By transforming a defensive position into offensive growth, the company increased direct channel impression share from 47% to 78%, effectively recapturing branded search territory while maintaining profitable marketplace partnerships.</p>
+                    
+                    <div class="insights-grid" style="margin-top: 1.5rem;">
+                        <div class="insight-box animate-on-scroll">
+                            <h4>Key Achievement</h4>
+                            <p>31% increase in direct channel market share within 90 days</p>
+                        </div>
+                        <div class="insight-box animate-on-scroll">
+                            <h4>Long-term Benefit</h4>
+                            <p>Established sustainable competitive moat in search auction dynamics</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="visual-box">
+                        <h4>Market Share Evolution</h4>
+                        <div class="market-visual">
+                            <div class="market-segment">
+                                <div class="segment-name">Initial Position</div>
+                                <div class="segment-value">47% Direct Share</div>
+                            </div>
+                            <div class="market-segment">
+                                <div class="segment-name">Phase 1 Complete</div>
+                                <div class="segment-value">62% Direct Share</div>
+                            </div>
+                            <div class="market-segment">
+                                <div class="segment-name">Full Implementation</div>
+                                <div class="segment-value">78% Direct Share</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Summary -->
+    <section class="section">
+        <div class="container">
+            <div class="results-summary animate-on-scroll">
+                <h3>Strategic Impact Summary</h3>
+                <ul class="results-list">
+                    <li>Increased direct channel market share from 47% to 78% within 90 days</li>
+                    <li>Reduced customer acquisition cost by 22% through auction efficiency gains</li>
+                    <li>Achieved 9.8/10 average Quality Score for superior search positioning</li>
+                    <li>Established sustainable competitive advantage in branded search auctions</li>
+                    <li>Maintained profitable marketplace partnerships while growing direct sales</li>
+                    <li>Increased direct conversion rate by 25% through optimized customer journeys</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Secure Your Market Position</h2>
+                <p>Optimize your direct sales channel performance and protect your branded search territory against marketplace competition. Implement a proven defense strategy to maximize direct revenue and maintain customer relationship control.</p>
+                <a href="https://www.calendly.com/lucidstrategies/ls" class="cta-button" target="_blank">Schedule Strategic Consultation</a>
+                <p style="font-size: 0.95rem; color: #666; margin-top: 1rem;">45-minute comprehensive analysis of your current market position and optimization opportunities</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        (function() {
+            'use strict';
+
+            // Initialize fade-in for elements with .animate-on-scroll
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            
+            animatedElements.forEach(el => {
+                el.classList.add('animate-on-scroll');
+            });
+
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -20px 0px'
+            };
+
+            const appearObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        appearObserver.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            animatedElements.forEach(el => {
+                appearObserver.observe(el);
+            });
+
+            // Animate bar fills
+            const barFillElements = document.querySelectorAll('.bar-fill');
+            
+            const barObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const bar = entry.target;
+                        const width = bar.getAttribute('data-width');
+                        if (width) {
+                            bar.style.width = width + '%';
+                        }
+                        barObserver.unobserve(bar);
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            barFillElements.forEach(bar => {
+                bar.style.width = '0%';
+                barObserver.observe(bar);
+            });
+
+            // CTA link
+            const ctaButton = document.querySelector('.cta-button');
+            if (ctaButton) {
+                ctaButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.open(this.href, '_blank');
+                });
+            }
+
+            // Ensure hero fade-in
+            document.querySelectorAll('.fade-in').forEach(el => {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            });
+
+            /* ADDED: when embedded in Wix, trim any remaining bottom space by matching body to content height */
+            function trimBottomGap(){
+                try{
+                    const doc = document.documentElement;
+                    const body = document.body;
+
+                    // Remove any default margins just in case Wix injects styles
+                    doc.style.margin = "0";
+                    doc.style.padding = "0";
+                    body.style.margin = "0";
+                    body.style.padding = "0";
+
+                    // If Wix iframe adds extra room, keep the scroll container exactly the viewport height
+                    // and avoid extra trailing whitespace beyond last section
+                    const last = document.querySelector('section:last-of-type');
+                    if(last){
+                        last.style.marginBottom = "0";
+                        last.style.paddingBottom = "0";
+                    }
+                }catch(e){}
+            }
+
+            window.addEventListener('load', trimBottomGap);
+            window.addEventListener('resize', trimBottomGap);
+
+        })();
+    </script>
+</body>
+</html>
