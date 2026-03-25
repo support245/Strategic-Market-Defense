@@ -33,12 +33,13 @@
         html, body {
             width: 100%;
             height: 100%;
+            overflow: hidden;
         }
 
         /* ADDED: prevent iframe “extra gap” and keep layout tight */
         body.scroll-container{
             max-height: 100vh;
-            overflow-y: auto;
+            overflow: hidden;
         }
         section:last-of-type{
             padding-bottom: 0 !important;
@@ -509,8 +510,8 @@
         /* ===== PERFECT SCROLL ===== */
         .scroll-container {
             max-height: 100vh;
-            overflow-y: auto;
-            scrollbar-width: thin;
+            overflow: hidden;
+            scrollbar-width: none;
         }
 
         /* Responsive fine-tuning */
